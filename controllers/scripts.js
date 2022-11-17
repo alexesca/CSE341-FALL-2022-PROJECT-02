@@ -1,4 +1,4 @@
-const Scripts = require("./../db/models/scripts") //
+const Scripts = require("./../db/models/scripts.js") //
 
 exports.index = async (req, res) => {
     // #swagger.tags = ['Scripts']

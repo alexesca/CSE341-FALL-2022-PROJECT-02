@@ -1,4 +1,4 @@
-const Technology = require("./../db/models/technology") //
+const Technologies = require("./../db/models/technologies.js") //
 
 exports.index = async (req, res) => {
     // #swagger.tags = ['Technology']
@@ -8,7 +8,7 @@ exports.index = async (req, res) => {
         description: 'User successfully obtained.',
         schema: { $ref: '#/definitions/Technology' }
 } */
-    const technology = await Technology.find()
+    const technology = await Technologies.find()
     res.send(technology)
 };
 
@@ -28,7 +28,7 @@ exports.id = async (req, res, next) => {
         schema: { $ref: '#/definitions/Contact' }
 } */
 
-    const technology = await Technology.findById(req.params._id);
+    const technology = await Technologies.findById(req.params._id);
     if(technology) {
         res.send(technology);
     } else {
@@ -49,7 +49,7 @@ exports.create = async (req, res) => {
     description: 'User successfully created.',
     schema: "Newly created Contact ID"
 } */
-    const technology = await Technology.create(req.body);
+    const technology = await Technologies.create(req.body);
     res.status(201).send(technology._id);
 };
 
@@ -63,7 +63,7 @@ exports.update = async (req, res) => {
                 schema: { $ref: '#/definitions/Contact' }
         } */
     const _id = req.params._id;
-    await Technology.findByIdAndUpdate(_id, req.body);
+    await Technologies.findByIdAndUpdate(_id, req.body);
     res.sendStatus(204)
 };
 
@@ -72,6 +72,6 @@ exports.delete = async (req, res) => {
     // #swagger.summary = 'Delete technology.'
     // #swagger.description = 'This endpoint deletes a technology if a valid ID is passed.'
     const _id = req.params._id;
-    await Technology.findByIdAndDelete(_id);
+    await Technologies.findByIdAndDelete(_id);
     res.sendStatus(200)
 };

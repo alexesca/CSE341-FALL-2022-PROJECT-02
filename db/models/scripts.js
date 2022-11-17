@@ -12,5 +12,5 @@ const ScriptsSchema = new Schema({
     shortName: String
 });
 
-const ScriptsModel = mongoose.model('Scripts', ScriptsSchema);
+const ScriptsModel = mongoose.model('Script', ScriptsSchema);
 module.exports = ScriptsModel;
