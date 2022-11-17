@@ -5,9 +5,9 @@ const doc = {
         title: 'My API',
         description: 'Description',
     },
-    host: "localhost:3000",
+    host: "scripts-io.onrender.com",
     swaggerUIPath: '/docs',
-    schemes: ['http'],
+    schemes: ['https'],
     definitions: {
         Users: [{
             "_id" : "6375c50e3b3e912a359a2e35",
