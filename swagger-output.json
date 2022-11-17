@@ -400,10 +400,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "_id": {
-            "type": "string",
-            "example": "6375c50e3b3e912a359a2e35"
-          },
           "email": {
             "type": "string",
             "example": "m@gmail.com"
@@ -422,10 +418,6 @@
     "User": {
       "type": "object",
       "properties": {
-        "_id": {
-          "type": "string",
-          "example": "6375c50e3b3e912a359a2e35"
-        },
         "email": {
           "type": "string",
           "example": "m@gmail.com"
@@ -467,10 +459,6 @@
     "Technology": {
       "type": "object",
       "properties": {
-        "_id": {
-          "type": "string",
-          "example": "6375c691fdc424f3222d320f"
-        },
         "name": {
           "type": "string",
           "example": "Angular"
@@ -490,10 +478,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "_id": {
-            "type": "string",
-            "example": "6375c87cf304e4454ef72406"
-          },
           "_userId": {
             "type": "string",
             "example": "6375c50e3b3e912a359a2e35"
@@ -524,10 +508,6 @@
     "Script": {
       "type": "object",
       "properties": {
-        "_id": {
-          "type": "string",
-          "example": "6375c87cf304e4454ef72406"
-        },
         "_userId": {
           "type": "string",
           "example": "6375c50e3b3e912a359a2e35"

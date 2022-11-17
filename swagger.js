@@ -10,13 +10,11 @@ const doc = {
     schemes: ['https'],
     definitions: {
         Users: [{
-            "_id" : "6375c50e3b3e912a359a2e35",
             "email" : "m@gmail.com",
             "name" : "Miguel",
             "phoneNumber" : "208-109-8899",
         }],
         User: {
-            "_id" : "6375c50e3b3e912a359a2e35",
             "email" : "m@gmail.com",
             "name" : "Miguel",
             "phoneNumber" : "208-109-8899",
@@ -28,13 +26,11 @@ const doc = {
             "logo" : "angular.jpg",
         }],
         Technology: {
-            "_id" : "6375c691fdc424f3222d320f",
             "name" : "Angular",
             "description" : "Front-framewor developed by google.",
             "logo" : "angular.jpg",
         },
         Scripts: [{
-            "_id" : "6375c87cf304e4454ef72406",
             "_userId" : "6375c50e3b3e912a359a2e35",
             "name" : "Create ng lib",
             "description" : "Creates an angular lib.",
@@ -43,7 +39,6 @@ const doc = {
             "shortName" : "ng lib",
         }],
         Script: {
-            "_id" : "6375c87cf304e4454ef72406",
             "_userId" : "6375c50e3b3e912a359a2e35",
             "name" : "Create ng lib",
             "description" : "Creates an angular lib.",
