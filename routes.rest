@@ -1,0 +1,141 @@
+// ENV
+
+###
+
+// Get all
+http://localhost:3000/users
+
+###
+
+// Get by id
+http://localhost:3000/users/6375c50e3b3e912a359a2e35
+
+###
+
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Miguel",
+  "email": "m@gmail.com",
+  "phoneNumber": "208-109-8899"
+}
+
+###
+
+// Get all
+http://localhost:3000/technologies
+
+###
+
+// Get by id
+http://localhost:3000/technologies/6375c691fdc424f3222d320f
+
+###
+
+POST http://localhost:3000/technologies HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Angular",
+  "description": "Front-framewor developed by google.",
+  "logo": "angular.jpg"
+}
+
+###
+
+// Get all
+http://localhost:3000/scripts
+
+###
+
+// Get by id
+http://localhost:3000/scripts/6375c87cf304e4454ef72406
+
+###
+
+POST http://localhost:3000/scripts HTTP/1.1
+content-type: application/json
+
+{
+  "_userId": "6375c50e3b3e912a359a2e35",
+  "_technologyId": "6375c691fdc424f3222d320f",
+  "name": "Create ng lib",
+  "description": "Creates an angular lib.",
+  "script": "nx g @nrwl/angular:lib [name] --directory=scheduler/",
+  "date": "09/16/2022",
+  "shortName": "ng lib"
+}
+
+###
+
+// PROD
+
+
+// Get all
+https://scripts-io.onrender.com/users
+
+###
+
+// Get by id
+https://scripts-io.onrender.com/users/6375c50e3b3e912a359a2e35
+
+###
+
+POST https://scripts-io.onrender.com/users HTTP/1.1
+    content-type: application/json
+
+{
+    "name": "Miguel",
+    "email": "m@gmail.com",
+    "phoneNumber": "208-109-8899"
+}
+
+###
+
+// Get all
+https://scripts-io.onrender.com/technologies
+
+###
+
+// Get by id
+https://scripts-io.onrender.com/technologies/6375c691fdc424f3222d320f
+
+###
+
+POST https://scripts-io.onrender.com/technologies HTTP/1.1
+    content-type: application/json
+
+{
+    "name": "Angular",
+    "description": "Front-framewor developed by google.",
+    "logo": "angular.jpg"
+}
+
+###
+
+// Get all
+https://scripts-io.onrender.com/scripts
+
+###
+
+// Get by id
+https://scripts-io.onrender.com/scripts/6375c87cf304e4454ef72406
+
+###
+
+POST https://scripts-io.onrender.com/scripts HTTP/1.1
+    content-type: application/json
+
+{
+    "_userId": "6375c50e3b3e912a359a2e35",
+    "_technologyId": "6375c691fdc424f3222d320f",
+    "name": "Create ng lib",
+    "description": "Creates an angular lib.",
+    "script": "nx g @nrwl/angular:lib [name] --directory=scheduler/",
+    "date": "09/16/2022",
+    "shortName": "ng lib"
+}
+
+###
+
