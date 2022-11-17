@@ -1,23 +1,23 @@
-const Scripts = require("./../db/models/scripts") //
+const Technology = require("./../db/models/technology") //
 
 exports.index = async (req, res) => {
-    // #swagger.tags = ['Scripts']
-    // #swagger.summary = 'Find all scripts.'
-    // #swagger.description = 'This endpoint returns a list with all the scripts in the database.'
+    // #swagger.tags = ['Technology']
+    // #swagger.summary = 'Find all technology.'
+    // #swagger.description = 'This endpoint returns a list with all the technology in the database.'
     /* #swagger.responses[200] = {
         description: 'User successfully obtained.',
-        schema: { $ref: '#/definitions/Scripts' }
+        schema: { $ref: '#/definitions/Technology' }
 } */
-    const scripts = await Scripts.find()
-    res.send(scripts)
+    const technology = await Technology.find()
+    res.send(technology)
 };
 
 exports.id = async (req, res, next) => {
-    // #swagger.tags = ['Scripts']
-    // #swagger.summary = 'Find contact by ID.'
-    // #swagger.description = 'This endpoint returns a contact found with the provided ID'
+    // #swagger.tags = ['Technology']
+    // #swagger.summary = 'Find technology by ID.'
+    // #swagger.description = 'This endpoint returns a technology found with the provided ID'
     /* #swagger.parameters['_id'] = {
-        description: "Id of the desired contact.",
+        description: "Id of the desired technology.",
         required: true,
         type: "string",
         schema: "636c889a2a02ef8e6e9f50e6"
@@ -28,50 +28,50 @@ exports.id = async (req, res, next) => {
         schema: { $ref: '#/definitions/Contact' }
 } */
 
-    const contact = await Scripts.findById(req.params._id);
-    if(contact) {
-        res.send(contact);
+    const technology = await Technology.findById(req.params._id);
+    if(technology) {
+        res.send(technology);
     } else {
         next("Contact not found.");
     }
 };
 
 exports.create = async (req, res) => {
-    // #swagger.tags = ['Scripts']
-    // #swagger.summary = 'Create contact and return ID. All fields are required.'
-    // #swagger.description = 'This endpoint creates a contact and returns the newly created contact ID.'
-    /*  #swagger.parameters['Scripts'] = {
+    // #swagger.tags = ['Technology']
+    // #swagger.summary = 'Create technology and return ID. All fields are required.'
+    // #swagger.description = 'This endpoint creates a technology and returns the newly created technology ID.'
+    /*  #swagger.parameters['Technology'] = {
                     in: 'body',
-                    description: 'Model of the new contact.',
+                    description: 'Model of the new technology.',
                     schema: { $ref: '#/definitions/Contact' }
             } */
     /* #swagger.responses[201] = {
     description: 'User successfully created.',
     schema: "Newly created Contact ID"
 } */
-    const contact = await Scripts.create(req.body);
-    res.status(201).send(contact._id);
+    const technology = await Technology.create(req.body);
+    res.status(201).send(technology._id);
 };
 
 exports.update = async (req, res) => {
-    // #swagger.tags = ['Scripts']
-    // #swagger.summary = 'Update contact.'
-    // #swagger.description = 'This endpoint updates a contact. All fields are required for a successful update.'
-    /*  #swagger.parameters['Scripts'] = {
+    // #swagger.tags = ['Technology']
+    // #swagger.summary = 'Update technology.'
+    // #swagger.description = 'This endpoint updates a technology. All fields are required for a successful update.'
+    /*  #swagger.parameters['Technology'] = {
                 in: 'body',
-                description: 'Model of the new contact.',
+                description: 'Model of the new technology.',
                 schema: { $ref: '#/definitions/Contact' }
         } */
     const _id = req.params._id;
-    await Scripts.findByIdAndUpdate(_id, req.body);
+    await Technology.findByIdAndUpdate(_id, req.body);
     res.sendStatus(204)
 };
 
 exports.delete = async (req, res) => {
-    // #swagger.tags = ['Scripts']
-    // #swagger.summary = 'Delete contact.'
-    // #swagger.description = 'This endpoint deletes a contact if a valid ID is passed.'
+    // #swagger.tags = ['Technology']
+    // #swagger.summary = 'Delete technology.'
+    // #swagger.description = 'This endpoint deletes a technology if a valid ID is passed.'
     const _id = req.params._id;
-    await Scripts.findByIdAndDelete(_id);
+    await Technology.findByIdAndDelete(_id);
     res.sendStatus(200)
 };
