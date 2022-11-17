@@ -4,6 +4,10 @@
  * Module dependencies.
  */
 
+require('dotenv').config()
+
+require("./../db/connection.js");
+
 var app = require('../app');
 var debug = require('debug')('wdd341-fall-2022-project-02:server');
 var http = require('http');
