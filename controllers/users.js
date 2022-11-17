@@ -25,14 +25,14 @@ exports.id = async (req, res, next) => {
 
     /* #swagger.responses[200] = {
         description: 'User successfully obtained.',
-        schema: { $ref: '#/definitions/Contact' }
+        schema: { $ref: '#/definitions/User' }
 } */
 
     const script = await Users.findById(req.params._id);
     if(script) {
         res.send(script);
     } else {
-        next("Contact not found.");
+        next("User not found.");
     }
 };
 
@@ -43,11 +43,11 @@ exports.create = async (req, res) => {
     /*  #swagger.parameters['Users'] = {
                     in: 'body',
                     description: 'Model of the new script.',
-                    schema: { $ref: '#/definitions/Contact' }
+                    schema: { $ref: '#/definitions/User' }
             } */
     /* #swagger.responses[201] = {
     description: 'User successfully created.',
-    schema: "Newly created Contact ID"
+    schema: "Newly created User ID"
 } */
     const script = await Users.create(req.body);
     res.status(201).send(script._id);
@@ -60,7 +60,7 @@ exports.update = async (req, res) => {
     /*  #swagger.parameters['Users'] = {
                 in: 'body',
                 description: 'Model of the new script.',
-                schema: { $ref: '#/definitions/Contact' }
+                schema: { $ref: '#/definitions/User' }
         } */
     const _id = req.params._id;
     await Users.findByIdAndUpdate(_id, req.body);

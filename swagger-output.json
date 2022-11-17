@@ -47,7 +47,7 @@
             "in": "body",
             "description": "Model of the new script.",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/User"
             }
           }
         ],
@@ -56,7 +56,7 @@
             "description": "User successfully  .",
             "schema": {
               "type": "string",
-              "example": "Newly created Contact ID",
+              "example": "Newly created User ID",
               "xml": {
                 "name": "main"
               }
@@ -89,7 +89,7 @@
           "200": {
             "description": "User successfully obtained.",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/User"
             }
           }
         }
@@ -112,7 +112,7 @@
             "in": "body",
             "description": "Model of the new script.",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/User"
             }
           }
         ],
@@ -172,7 +172,7 @@
             "in": "body",
             "description": "Model of the new technology.",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/Technology"
             }
           }
         ],
@@ -181,7 +181,7 @@
             "description": "User successfully  .",
             "schema": {
               "type": "string",
-              "example": "Newly created Contact ID",
+              "example": "Newly created Technology ID",
               "xml": {
                 "name": "main"
               }
@@ -214,7 +214,7 @@
           "200": {
             "description": "User successfully obtained.",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/Technology"
             }
           }
         }
@@ -237,7 +237,7 @@
             "in": "body",
             "description": "Model of the new technology.",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/Technology"
             }
           }
         ],
@@ -297,7 +297,7 @@
             "in": "body",
             "description": "Model of the new script.",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/Script"
             }
           }
         ],
@@ -306,7 +306,7 @@
             "description": "User successfully  .",
             "schema": {
               "type": "string",
-              "example": "Newly created Contact ID",
+              "example": "Newly created Script ID",
               "xml": {
                 "name": "main"
               }
@@ -339,7 +339,7 @@
           "200": {
             "description": "User successfully obtained.",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/Script"
             }
           }
         }
@@ -362,7 +362,7 @@
             "in": "body",
             "description": "Model of the new script.",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/Script"
             }
           }
         ],
@@ -395,56 +395,162 @@
     }
   },
   "definitions": {
-    "Contacts": {
+    "Users": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "firstName": {
+          "_id": {
             "type": "string",
-            "example": "Simon"
-          },
-          "lastName": {
-            "type": "string",
-            "example": "Perez"
+            "example": "6375c50e3b3e912a359a2e35"
           },
           "email": {
             "type": "string",
-            "example": "sd@gmail.com"
+            "example": "m@gmail.com"
           },
-          "birthday": {
+          "name": {
             "type": "string",
-            "example": "09/12/2000"
+            "example": "Miguel"
           },
-          "favoriteColor": {
+          "phoneNumber": {
             "type": "string",
-            "example": "Red"
+            "example": "208-109-8899"
           }
         }
       }
     },
-    "Contact": {
+    "User": {
       "type": "object",
       "properties": {
-        "firstName": {
+        "_id": {
           "type": "string",
-          "example": "Simon"
-        },
-        "lastName": {
-          "type": "string",
-          "example": "Perez"
+          "example": "6375c50e3b3e912a359a2e35"
         },
         "email": {
           "type": "string",
-          "example": "sd@gmail.com"
+          "example": "m@gmail.com"
         },
-        "birthday": {
+        "name": {
           "type": "string",
-          "example": "09/12/2000"
+          "example": "Miguel"
         },
-        "favoriteColor": {
+        "phoneNumber": {
           "type": "string",
-          "example": "Red"
+          "example": "208-109-8899"
+        }
+      }
+    },
+    "Technologies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "6375c691fdc424f3222d320f"
+          },
+          "name": {
+            "type": "string",
+            "example": "Angular"
+          },
+          "description": {
+            "type": "string",
+            "example": "Front-framewor developed by google."
+          },
+          "logo": {
+            "type": "string",
+            "example": "angular.jpg"
+          }
+        }
+      }
+    },
+    "Technology": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "6375c691fdc424f3222d320f"
+        },
+        "name": {
+          "type": "string",
+          "example": "Angular"
+        },
+        "description": {
+          "type": "string",
+          "example": "Front-framewor developed by google."
+        },
+        "logo": {
+          "type": "string",
+          "example": "angular.jpg"
+        }
+      }
+    },
+    "Scripts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "6375c87cf304e4454ef72406"
+          },
+          "_userId": {
+            "type": "string",
+            "example": "6375c50e3b3e912a359a2e35"
+          },
+          "name": {
+            "type": "string",
+            "example": "Create ng lib"
+          },
+          "description": {
+            "type": "string",
+            "example": "Creates an angular lib."
+          },
+          "script": {
+            "type": "string",
+            "example": "nx g @nrwl/angular:lib [name] --directory=scheduler/"
+          },
+          "date": {
+            "type": "string",
+            "example": "2022-09-16T06:00:00.000+0000"
+          },
+          "shortName": {
+            "type": "string",
+            "example": "ng lib"
+          }
+        }
+      }
+    },
+    "Script": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "6375c87cf304e4454ef72406"
+        },
+        "_userId": {
+          "type": "string",
+          "example": "6375c50e3b3e912a359a2e35"
+        },
+        "name": {
+          "type": "string",
+          "example": "Create ng lib"
+        },
+        "description": {
+          "type": "string",
+          "example": "Creates an angular lib."
+        },
+        "script": {
+          "type": "string",
+          "example": "nx g @nrwl/angular:lib [name] --directory=scheduler/"
+        },
+        "date": {
+          "type": "string",
+          "example": "2022-09-16T06:00:00.000+0000"
+        },
+        "shortName": {
+          "type": "string",
+          "example": "ng lib"
         }
       }
     }

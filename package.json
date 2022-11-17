@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "npm run swagger && nodemon ./bin/www",
     "swagger": "node ./swagger.js"
   },
   "dependencies": {

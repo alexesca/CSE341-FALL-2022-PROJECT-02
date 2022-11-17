@@ -25,14 +25,14 @@ exports.id = async (req, res, next) => {
 
     /* #swagger.responses[200] = {
         description: 'User successfully obtained.',
-        schema: { $ref: '#/definitions/Contact' }
+        schema: { $ref: '#/definitions/Technology' }
 } */
 
     const technology = await Technologies.findById(req.params._id);
     if(technology) {
         res.send(technology);
     } else {
-        next("Contact not found.");
+        next("Technology not found.");
     }
 };
 
@@ -43,11 +43,11 @@ exports.create = async (req, res) => {
     /*  #swagger.parameters['Technology'] = {
                     in: 'body',
                     description: 'Model of the new technology.',
-                    schema: { $ref: '#/definitions/Contact' }
+                    schema: { $ref: '#/definitions/Technology' }
             } */
     /* #swagger.responses[201] = {
     description: 'User successfully created.',
-    schema: "Newly created Contact ID"
+    schema: "Newly created Technology ID"
 } */
     const technology = await Technologies.create(req.body);
     res.status(201).send(technology._id);
@@ -60,7 +60,7 @@ exports.update = async (req, res) => {
     /*  #swagger.parameters['Technology'] = {
                 in: 'body',
                 description: 'Model of the new technology.',
-                schema: { $ref: '#/definitions/Contact' }
+                schema: { $ref: '#/definitions/Technology' }
         } */
     const _id = req.params._id;
     await Technologies.findByIdAndUpdate(_id, req.body);
