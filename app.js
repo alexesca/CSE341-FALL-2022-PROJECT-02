@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+require("./db/connection.js");
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
