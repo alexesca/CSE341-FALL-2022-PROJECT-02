@@ -1,0 +1,453 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find all user.",
+        "description": "This endpoint returns a list with all the user in the database.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create script and return ID. All fields are required.",
+        "description": "This endpoint   a script and returns the newly   script ID.",
+        "parameters": [
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User successfully  .",
+            "schema": {
+              "type": "string",
+              "example": "Newly created Contact ID",
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{_id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find script by ID.",
+        "description": "This endpoint returns a script found with the provided ID",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Id of the desired script.",
+            "schema": {
+              "type": "string",
+              "example": "636c889a2a02ef8e6e9f50e6"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update script.",
+        "description": "This endpoint   a script. All fields are required for a successful update.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete script.",
+        "description": "This endpoint   a script if a valid ID is passed.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/technologies/": {
+      "get": {
+        "tags": [
+          "Technology"
+        ],
+        "summary": "Find all technology.",
+        "description": "This endpoint returns a list with all the technology in the database.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Technology"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Technology"
+        ],
+        "summary": "Create technology and return ID. All fields are required.",
+        "description": "This endpoint   a technology and returns the newly   technology ID.",
+        "parameters": [
+          {
+            "name": "Technology",
+            "in": "body",
+            "description": "Model of the new technology.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User successfully  .",
+            "schema": {
+              "type": "string",
+              "example": "Newly created Contact ID",
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/technologies/{_id}": {
+      "get": {
+        "tags": [
+          "Technology"
+        ],
+        "summary": "Find technology by ID.",
+        "description": "This endpoint returns a technology found with the provided ID",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Id of the desired technology.",
+            "schema": {
+              "type": "string",
+              "example": "636c889a2a02ef8e6e9f50e6"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Technology"
+        ],
+        "summary": "Update technology.",
+        "description": "This endpoint   a technology. All fields are required for a successful update.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Technology",
+            "in": "body",
+            "description": "Model of the new technology.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Technology"
+        ],
+        "summary": "Delete technology.",
+        "description": "This endpoint   a technology if a valid ID is passed.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/scripts/": {
+      "get": {
+        "tags": [
+          "Scripts"
+        ],
+        "summary": "Find all scripts.",
+        "description": "This endpoint returns a list with all the scripts in the database.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Scripts"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scripts"
+        ],
+        "summary": "Create script and return ID. All fields are required.",
+        "description": "This endpoint   a script and returns the newly   script ID.",
+        "parameters": [
+          {
+            "name": "Scripts",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User successfully  .",
+            "schema": {
+              "type": "string",
+              "example": "Newly created Contact ID",
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/scripts/{_id}": {
+      "get": {
+        "tags": [
+          "Scripts"
+        ],
+        "summary": "Find script by ID.",
+        "description": "This endpoint returns a script found with the provided ID",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Id of the desired script.",
+            "schema": {
+              "type": "string",
+              "example": "636c889a2a02ef8e6e9f50e6"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Scripts"
+        ],
+        "summary": "Update script.",
+        "description": "This endpoint   a script. All fields are required for a successful update.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Scripts",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scripts"
+        ],
+        "summary": "Delete script.",
+        "description": "This endpoint   a script if a valid ID is passed.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "Simon"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Perez"
+          },
+          "email": {
+            "type": "string",
+            "example": "sd@gmail.com"
+          },
+          "birthday": {
+            "type": "string",
+            "example": "09/12/2000"
+          },
+          "favoriteColor": {
+            "type": "string",
+            "example": "Red"
+          }
+        }
+      }
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Simon"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Perez"
+        },
+        "email": {
+          "type": "string",
+          "example": "sd@gmail.com"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "09/12/2000"
+        },
+        "favoriteColor": {
+          "type": "string",
+          "example": "Red"
+        }
+      }
+    }
+  },
+  "swaggerUIPath": "/docs"
+}
