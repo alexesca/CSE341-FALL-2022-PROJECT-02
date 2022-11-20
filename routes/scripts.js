@@ -1,12 +1,14 @@
-const controller = require("../controllers/scripts.js");
 const express = require("express");
 const router = express.Router();
 
+const controller = require("../controllers/scripts.js");
+const validateIdMiddleware = require('./../middlewares/validate-id.middleware.js');
+
 router
     .get("/", controller.index)
-    .get("/:_id", controller.id)
+    .get("/:_id",validateIdMiddleware.validate,  controller.id)
     .post("/", controller.create)
-    .put("/:_id", controller.update)
-    .delete("/:_id", controller.delete);
+    .put("/:_id",validateIdMiddleware.validate,  controller.update)
+    .delete("/:_id",validateIdMiddleware.validate,  controller.delete);
 
 module.exports = router;
