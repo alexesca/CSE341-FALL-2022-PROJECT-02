@@ -6,6 +6,6 @@ exports.validate = (req, res, next) => {
     const name = get(body, 'name');
     const phoneNumber = get(body, 'phoneNumber');
 
-    if(!email || !name || !phoneNumber) throw new Error("All fields are required.");
+    if(!email || !name || !phoneNumber) next("All fields are required.");
 
 }
