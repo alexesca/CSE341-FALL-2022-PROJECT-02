@@ -1,6 +1,6 @@
 const {get} = require('lodash');
 
-exports.validate = (req, res, next) => {
+exports.validate = (req, res) => {
     const body = get(req, 'body');
     const name = get(body, 'name');
     const description = get(body, 'description');
