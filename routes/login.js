@@ -63,10 +63,10 @@ router.get('/signup', function(req, res, next) {
 });
 
 
-router.post('/signup', function(req, res, next) {
-    var salt = crypto.randomBytes(16);
-    crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', );
-});
+// router.post('/signup', function(req, res, next) {
+    // var salt = crypto.randomBytes(16);
+    // crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', );
+// });
 
 
 module.exports = router;
