@@ -55,7 +55,7 @@ router.get('/error', function(req, res, next) {
 
 router.post('/', passport.authenticate('local', {
     successReturnToOrRedirect: '/login/private',
-    failureRedirect: '/',
+    failureRedirect: '/login/error',
     failureMessage: true
 }));
 
