@@ -2,6 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./../db/models/users');
+const crypto = require("crypto");
 
 function verifyPassword(password1, password2) {
     return password1 === password2
@@ -55,6 +56,17 @@ router.post('/',
     passport.authenticate('local', { failureRedirect: '/login/error' }),
     function(req, res) {
         res.redirect('/');
-    });
+});
+
+router.get('/signup', function(req, res, next) {
+    res.render('signup');
+});
+
+
+router.post('/signup', function(req, res, next) {
+    var salt = crypto.randomBytes(16);
+    crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', );
+});
+
 
 module.exports = router;
