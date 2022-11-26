@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const LoginController = require('./../controllers/login.js')
 const User = require('./../db/models/users');
 const crypto = require("crypto");
 
@@ -61,7 +62,7 @@ router.post('/',
 router.get('/signup', function(req, res, next) {
     res.render('signup');
 });
-
+router.post('/signup', LoginController.signup);
 
 // router.post('/signup', function(req, res, next) {
     // var salt = crypto.randomBytes(16);
