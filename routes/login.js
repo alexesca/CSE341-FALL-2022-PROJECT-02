@@ -1,32 +1,47 @@
 const express = require('express');
 const passport = require('passport');
-const github = require('./../github.js');
+const LocalStrategy = require('passport-local');
 const loginController = require('./../controllers/login.js');
+const User = require('./../db/models/users');
 
-passport.use(github);
+function verifyPassword(password1, password2) {
+    return password1 === password2
+}
 
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        User.findOne({ username: username }, function (err, user) {
+            if (err) { return done(err); }
+            if (!user) { return done(null, false); }
+            if (!verifyPassword(password)) { return done(null, false); }
+            return done(null, user);
+        });
+    }
+));
+
+passport.serializeUser(function(user, cb) {
+    process.nextTick(function() {
+        cb(null, { id: user.id, username: user.username });
+    });
+});
+
+passport.deserializeUser(function(user, cb) {
+    process.nextTick(function() {
+        return cb(null, user);
+    });
+});
+
+
+/**
+ * Router
+ * @type {Router}
+ */
 const router = express.Router();
 
-// router.use(passport.initialize());
-// router.use(passport.session());
 
-passport.serializeUser(function(user, done) {
-    done(null, user);
+
+router.get('/', function(req, res, next) {
+    res.send({message: "Enter credential in this login screen"});
 });
-
-passport.deserializeUser(function(obj, done) {
-    done(null, obj);
-});
-
-router.get('/', function(req, res){
-    res.send({ok: "OK"})
-});
-
-router.get('/', passport.authenticate('github', { scope: [ 'user:email' ] }));
-
-router.get('/callback',
-    passport.authenticate('github', { failureRedirect: '/',  failureFlash: true }),
-    (req, res) =>  res.redirect('/account'));
-
 
 module.exports = router;

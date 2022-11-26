@@ -393,25 +393,15 @@
         }
       }
     },
-    "/login/": {
+    "/login/login": {
       "get": {
         "description": "",
         "parameters": [],
-        "responses": {}
-      }
-    },
-    "/login/github": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/login/github/callback": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     }
   },
