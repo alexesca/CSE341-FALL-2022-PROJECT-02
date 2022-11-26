@@ -51,6 +51,10 @@ router.get('/error', function(req, res, next) {
     res.send({message: "Unauthorized user!!!"});
 });
 
-router.post('/', passport.authenticate('local'));
+router.post('/',
+    passport.authenticate('local', { failureRedirect: '/login/error' }),
+    function(req, res) {
+        res.redirect('/');
+    });
 
 module.exports = router;

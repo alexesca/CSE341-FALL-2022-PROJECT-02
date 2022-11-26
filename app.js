@@ -34,7 +34,6 @@ app.use(session({
   saveUninitialized: false, // don't create session until something stored
   store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
 }));
-app.use(csrf());
 app.use(passport.authenticate('session'));
 
 
