@@ -1,7 +1,6 @@
 const express = require('express');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const loginController = require('./../controllers/login.js');
 const User = require('./../db/models/users');
 
 function verifyPassword(password1, password2) {
@@ -45,17 +44,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/private', function(req, res, next) {
-    res.send({message: "Welcom"});
+    res.send({message: "Welcome"});
 });
 
 router.get('/error', function(req, res, next) {
     res.send({message: "Unauthorized user!!!"});
 });
 
-router.post('/', passport.authenticate('local', {
-    successReturnToOrRedirect: '/login/private',
-    failureRedirect: '/login/error',
-    failureMessage: true
-}));
+router.post('/', passport.authenticate('local'));
 
 module.exports = router;
