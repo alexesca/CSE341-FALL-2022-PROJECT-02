@@ -25,6 +25,18 @@
             <label for="short-name">Short Name</label>
             <input id="short-name" name="shortName" type="password" autocomplete="Short Name" required>
         </section>
+        <section>
+            <select id="volume">
+
+                <%
+                for ( var i = 0; i < technologies.length; i++ )
+                {
+                    var selected = ( config[0].volume == i ) ? "selected" : "";
+                %><option value="<%=technologies[i]%>"><%=technologies[i]%></option><%
+                }
+                %>
+            </select>
+        </section>
         <input type="hidden" name="_userId" value="<%= user._id %>">
         <button type="submit">Sign up</button>
     </form>
