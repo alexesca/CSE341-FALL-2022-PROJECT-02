@@ -23,17 +23,17 @@
         </section>
         <section>
             <label for="short-name">Short Name</label>
-            <input id="short-name" name="shortName" type="password" autocomplete="Short Name" required>
+            <input id="short-name" name="shortName" type="text" autocomplete="Short Name" required>
         </section>
         <section>
-            <select name="hour">
+            <select name="technology">
                 <option value=''>Select an Option</option>
                 <% technologies.forEach(function(t) { %>
                     <option value='<%= t.name %>'><%= t.name %></option>
                 <% }); %>
             </select>
         </section>
-        <input type="hidden" name="_userId" value="<%= user._id %>">
+        <input type="hidden" name="_userId" value='<%= user.id %>'>
         <button type="submit">Add script</button>
     </form>
 </section>
