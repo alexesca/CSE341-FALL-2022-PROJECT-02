@@ -12,6 +12,10 @@ exports.index = async (req, res) => {
     res.send(scripts)
 };
 
+exports.new = (req, res) => {
+    res.render('new', {user: req.user});
+}
+
 exports.id = async (req, res, next) => {
     // #swagger.tags = ['Scripts']
     // #swagger.summary = 'Find script by ID.'

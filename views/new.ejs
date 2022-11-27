@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scripts | New</title>
+</head>
+<body>
+<section class="prompt">
+    <h1>Add New Script</h1>
+    <form action="/scripts" method="post">
+        <section>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="Name" required autofocus>
+        </section>
+        <section>
+            <label for="description">Description</label>
+            <input id="description" name="description" type="text" autocomplete="Description" required autofocus>
+        </section>
+        <section>
+            <label for="script">Script</label>
+            <input id="script" name="script" type="text" autocomplete="Script" required autofocus>
+        </section>
+        <section>
+            <label for="short-name">Short Name</label>
+            <input id="short-name" name="shortName" type="password" autocomplete="Short Name" required>
+        </section>
+        <input type="hidden" name="_userId" value="<%= user._id %>">
+        <button type="submit">Sign up</button>
+    </form>
+    <hr>
+    <p class="help">Already have an account? <a href="/login">Sign in</a></p>
+</section>
+</body>
+</html>

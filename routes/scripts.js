@@ -5,8 +5,9 @@ const controller = require("../controllers/scripts.js");
 const validateIdMiddleware = require('./../middlewares/validate-id.middleware.js');
 
 router
-    .get("/", controller.index)
+    .get("/new", controller.new)
     .get("/:_id",validateIdMiddleware.validate,  controller.id)
+    .get("/", controller.index)
     .post("/", controller.create)
     .put("/:_id",validateIdMiddleware.validate,  controller.update)
     .delete("/:_id",validateIdMiddleware.validate,  controller.delete);
