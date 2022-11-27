@@ -10,4 +10,9 @@
     <h1><%= script.description %></h1>
     <h1><%= script.script %></h1>
     <h1><%= script.date %></h1>
+    <form id="delete-<%= todo.id %>" action="script/<%= todo.url %>" method="post">
+        <% if (filter) { %>
+            <input type="hidden" name="_id" value="<%= script._id %>"/>
+        <% } %>
+    </form>
 <% }); %>

@@ -12,6 +12,6 @@ router
     .get("/", controller.index)
     .post("/", controller.create)
     .put("/:_id",validateIdMiddleware.validate,  controller.update)
-    .delete("/:_id",validateIdMiddleware.validate,  controller.delete);
+    .post("/:_id",validateIdMiddleware.validate,  controller.delete);
 
 module.exports = router;
