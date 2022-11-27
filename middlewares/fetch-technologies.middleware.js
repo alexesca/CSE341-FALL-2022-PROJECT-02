@@ -1,7 +1,8 @@
 const Technology = require('./../db/models/technologies.js');
 
 exports.fetch = async (req, res, next) => {
-    const technology = await Technology.find();
-    res.locals.technology = technology;
+    const technologies = await Technology.find();
+    res.locals.technologies = technologies;
+    debugger
     next();
 }
