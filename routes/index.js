@@ -7,8 +7,12 @@ router.use("/users", require("./users.js"));
 router.use("/technologies", require("./technologies.js"));
 router.use("/scripts", require("./scripts.js"));
 
+/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Scripts.io' });
+  if (!req.user) { return res.render('home'); }
+  next();
+}, function(req, res, next) {
+  res.render('index', { user: req.user });
 });
 
 module.exports = router;

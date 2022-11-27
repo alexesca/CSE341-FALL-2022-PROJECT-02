@@ -10,8 +10,8 @@ function verifyPassword(password1, password2) {
 }
 
 passport.use(new LocalStrategy(
-    function(username, password, done) {
-        User.findOne({ username: username }, function (err, user) {
+    function(email, password, done) {
+        User.findOne({ email }, function (err, user) {
             if (err) { return done(err); }
             if (!user) { return done(null, false); }
             if (!verifyPassword(user.password, password)) { return done(null, false); }
@@ -22,7 +22,7 @@ passport.use(new LocalStrategy(
 
 passport.serializeUser(function(user, cb) {
     process.nextTick(function() {
-        cb(null, { id: user.id, username: user.username });
+        cb(null, { id: user.id, email: user.email });
     });
 });
 
