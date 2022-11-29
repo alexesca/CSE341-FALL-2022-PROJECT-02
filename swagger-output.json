@@ -5,11 +5,17 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "scripts-io.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
+  "securityDefinitions": {
+    "oauth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://localhost:3000/login/github"
+    }
+  },
   "paths": {
     "/": {
       "get": {
@@ -52,6 +58,13 @@
             "description": "OK"
           }
         }
+      }
+    },
+    "/login/logout": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
       }
     },
     "/users/": {
