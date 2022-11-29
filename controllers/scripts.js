@@ -54,7 +54,7 @@ exports.create = async (req, res) => {
     schema: "Newly created Script ID"
 } */
     const script = await Scripts.create(req.body);
-    res.redirect('/')
+    res.send(script);
 };
 
 exports.update = async (req, res) => {
