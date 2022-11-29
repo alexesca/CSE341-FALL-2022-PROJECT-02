@@ -14,6 +14,7 @@ module.exports = new GitHubStrategy({
             name: profile.displayName,
             username: profile.username
         }
+        // Signup user if not found.
         await User.create(dto)
     };
     done(null, profile)
