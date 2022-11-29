@@ -38,30 +38,15 @@
         "responses": {}
       }
     },
-    "/login/private": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/login/error": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/login/logout": {
       "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/login/signup": {
+      "post": {
         "description": "",
         "parameters": [],
         "responses": {}

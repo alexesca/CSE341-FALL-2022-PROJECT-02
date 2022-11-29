@@ -1,5 +1,5 @@
 const GitHubStrategy = require('passport-github2').Strategy;
-const User = require('./db/models/users.js');
+const User = require("./db/models/users.js");
 
 
 module.exports = new GitHubStrategy({
@@ -7,8 +7,15 @@ module.exports = new GitHubStrategy({
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
         callbackURL: process.env.GITHUB_CALLBACK_URL
     },
-    function(accessToken, refreshToken, profile, done) {
-    debugger
-        done(null, profile)
+    async function(accessToken, refreshToken, profile, done) {
+    const user = await User.findOne({username: profile.username});
+    if(!user) {
+        const dto = {
+            name: profile.displayName,
+            username: profile.username
+        }
+        await User.create(dto)
+    };
+    done(null, profile)
     }
 );

@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const github = require('./../github.js');
-
+const LoginController = require('./../controllers/login.js');
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -29,17 +29,14 @@ router.get('/github/callback',
 router.get('/github',
     passport.authenticate('github', { scope: [ 'user:email' ] }));
 
-router.get('/private', function(req, res, next) {
-    res.send({message: "Welcome"});
+
+router.get('/logout', function(req, res, next){
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
 });
 
-router.get('/error', function(req, res, next) {
-    res.send({message: "Unauthorized user!!!"});
-});
-
-router.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
-});
+router.post('/signup', LoginController.signup);
 
 module.exports = router;
