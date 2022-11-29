@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "npm run swagger && nodemon --inspect ./bin/www",
-    "swagger": "node ./swagger.js"
+    "swagger": "node ./swagger.js",
+    "build": "npx tsc"
   },
   "dependencies": {
     "connect-ensure-login": "^0.1.1",
