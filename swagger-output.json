@@ -302,13 +302,6 @@
         }
       }
     },
-    "/scripts/new": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
     "/scripts/{_id}": {
       "get": {
         "tags": [
@@ -366,7 +359,7 @@
           }
         }
       },
-      "post": {
+      "delete": {
         "tags": [
           "Scripts"
         ],
@@ -421,6 +414,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "201": {
             "description": "User successfully  .",
             "schema": {

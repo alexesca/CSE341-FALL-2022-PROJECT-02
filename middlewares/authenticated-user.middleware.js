@@ -1,6 +1,7 @@
 const User = require('./../db/models/users.js');
 
 exports.user = async (req, res, next) => {
+    if(!req.user) return next('Missing authenticated user.');
     const username = req.user.username;
     const user = await User.findOne({username})
         .lean()
