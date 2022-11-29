@@ -70,8 +70,11 @@ exports.update = async (req, res) => {
                 description: 'Model of the new script.',
                 schema: { $ref: '#/definitions/Script' }
         } */
-    const _id = req.params._id;
-    await Scripts.findByIdAndUpdate(_id, req.body);
+    const conditions = {
+        _id: req.params._id,
+        _userId: req.user._id
+    }
+    await Scripts.findOneAndUpdate(conditions, req.body);
     res.sendStatus(204)
 };
 
