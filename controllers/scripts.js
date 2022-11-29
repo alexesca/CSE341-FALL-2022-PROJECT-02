@@ -32,7 +32,11 @@ exports.id = async (req, res, next) => {
         schema: { $ref: '#/definitions/Script' }
 } */
 
-    const script = await Scripts.findById(req.params._id);
+    const conditions = {
+        _id: req.params._id,
+        _userId: req.user._id
+    }
+    const script = await Scripts.findOne(conditions);
     if(script) {
         res.send(script);
     } else {
