@@ -1,9 +1,5 @@
 const express = require('express');
 const passport = require('passport');
-const LocalStrategy = require('passport-local');
-const LoginController = require('./../controllers/login.js')
-const User = require('./../db/models/users');
-const crypto = require("crypto");
 const github = require('./../github.js');
 
 

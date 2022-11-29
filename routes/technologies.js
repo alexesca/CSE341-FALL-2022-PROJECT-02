@@ -4,12 +4,13 @@ const router = express.Router();
 const controller = require("../controllers/technologies.js");
 const validateIdMiddleware = require('./../middlewares/validate-id.middleware.js');
 const validateTechnologyMiddleware = require('./../middlewares/validate-technology.middleware.js');
+const ensureAuthenticated = require('./../middlewares/ensure-authenticated.middleware.js');
 
 router
-    .get("/", controller.index)
-    .get("/:_id", validateIdMiddleware.validate, controller.id)
-    .post("/", validateTechnologyMiddleware.validate, controller.create)
-    .put("/:_id", validateIdMiddleware.validate, validateTechnologyMiddleware.validate, controller.update)
-    .delete("/:_id", validateIdMiddleware.validate, controller.delete);
+    .get("/", ensureAuthenticated, controller.index)
+    .get("/:_id", ensureAuthenticated, validateIdMiddleware.validate, controller.id)
+    .post("/", ensureAuthenticated, validateTechnologyMiddleware.validate, controller.create)
+    .put("/:_id", ensureAuthenticated, validateIdMiddleware.validate, validateTechnologyMiddleware.validate, controller.update)
+    .delete("/:_id", ensureAuthenticated, validateIdMiddleware.validate, controller.delete);
 
 module.exports = router;
