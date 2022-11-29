@@ -5,15 +5,15 @@ const doc = {
         title: 'My API',
         description: 'Description',
     },
-    host: "localhost:3000",
-    // host: "scripts-io.onrender.com",
+    // host: "localhost:3000",
+    host: "scripts-io.onrender.com",
     swaggerUIPath: '/docs',
-    schemes: ['http'],
-    // schemes: ['https'],
+    // schemes: ['http'],
+    schemes: ['https'],
     "securityDefinitions": {
         "oauth": {
             "type": "oauth2",
-            "authorizationUrl": "http://localhost:3000/login/github",
+            "authorizationUrl": "https://scripts-io.onrender.com/login/github",
 
         }
     },
