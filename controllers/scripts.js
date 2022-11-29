@@ -82,7 +82,10 @@ exports.delete = async (req, res) => {
     // #swagger.tags = ['Scripts']
     // #swagger.summary = 'Delete script.'
     // #swagger.description = 'This endpoint deletes a script if a valid ID is passed.'
-    const _id = req.params._id;
-    await Scripts.findByIdAndDelete(_id);
+    const conditions = {
+        _id: req.params._id,
+        _userId: req.user._id
+    }
+    await Scripts.findOneAndDelete(conditions);
     res.sendStatus(200)
 };
