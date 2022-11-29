@@ -7,5 +7,5 @@ exports.validate = (req, res, next) => {
     const logo = get(body, 'logo');
 
     if(!name || !description || !logo) next("All fields are required.");
-
+    next()
 }

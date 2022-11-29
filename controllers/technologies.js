@@ -55,8 +55,12 @@ exports.create = async (req, res) => {
     description: 'User successfully created.',
     schema: "Newly created Technology ID"
 } */
-    const technology = await Technologies.create(req.body);
-    res.status(201).send(technology._id);
+    try {
+        const technology = await Technologies.create(req.body);
+        res.status(201).send(technology._id);
+    } catch (e) {
+        throw new Error("There was an error creating the technology.")
+    }
 };
 
 exports.update = async (req, res) => {
