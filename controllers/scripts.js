@@ -53,6 +53,7 @@ exports.create = async (req, res) => {
     description: 'User successfully created.',
     schema: "Newly created Script ID"
 } */
+    debugger
     const script = await Scripts.create(req.body);
     res.send(script);
 };
