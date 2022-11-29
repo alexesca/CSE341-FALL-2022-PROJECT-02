@@ -8,6 +8,7 @@ module.exports = new GitHubStrategy({
         callbackURL: process.env.GITHUB_CALLBACK_URL
     },
     function(accessToken, refreshToken, profile, done) {
+    debugger
         done(null, profile)
     }
 );

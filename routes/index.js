@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   if (!req.user) { return res.render('home'); }
   next();
 }, ScriptsMiddleware.fetch, function(req, res, next) {
-  res.render('index', { user: req.user });
+  res.render('index');
 });
 
 module.exports = router;

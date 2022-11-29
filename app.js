@@ -7,12 +7,12 @@ const swaggerUi = require('swagger-ui-express');
 var cors = require('cors');
 const passport = require('passport');
 var csrf = require('csurf');
+var methodOverride = require('method-override');
+var partials = require('express-partials');
 
 var indexRouter = require('./routes/index');
 const swaggerDocument = require('./swagger-output.json');
 const session = require('express-session');
-
-var SQLiteStore = require('connect-sqlite3')(session);
 
 var app = express();
 
@@ -24,17 +24,13 @@ app.locals.pluralize = require('pluralize');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(partials());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false, // don't save session if unmodified
-  saveUninitialized: false, // don't create session until something stored
-  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
-}));
-app.use(passport.authenticate('session'));
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

@@ -18,13 +18,15 @@
         "responses": {}
       }
     },
-    "/login/": {
+    "/login/github/callback": {
       "get": {
         "description": "",
         "parameters": [],
         "responses": {}
-      },
-      "post": {
+      }
+    },
+    "/login/github": {
+      "get": {
         "description": "",
         "parameters": [],
         "responses": {}
@@ -50,18 +52,6 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/login/signup": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      },
-      "post": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
       }
     },
     "/users/": {
@@ -314,51 +304,11 @@
         }
       }
     },
-    "/scripts/": {
+    "/scripts/new": {
       "get": {
-        "tags": [
-          "Scripts"
-        ],
-        "summary": "Find all scripts.",
-        "description": "This endpoint returns a list with all the scripts in the database.",
+        "description": "",
         "parameters": [],
-        "responses": {
-          "200": {
-            "description": "User successfully obtained.",
-            "schema": {
-              "$ref": "#/definitions/Scripts"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Scripts"
-        ],
-        "summary": "Create script and return ID. All fields are required.",
-        "description": "This endpoint   a script and returns the newly   script ID.",
-        "parameters": [
-          {
-            "name": "Scripts",
-            "in": "body",
-            "description": "Model of the new script.",
-            "schema": {
-              "$ref": "#/definitions/Script"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "User successfully  .",
-            "schema": {
-              "type": "string",
-              "example": "Newly created Script ID",
-              "xml": {
-                "name": "main"
-              }
-            }
-          }
-        }
+        "responses": {}
       }
     },
     "/scripts/{_id}": {
@@ -418,7 +368,7 @@
           }
         }
       },
-      "delete": {
+      "post": {
         "tags": [
           "Scripts"
         ],
@@ -435,6 +385,53 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/scripts/": {
+      "get": {
+        "tags": [
+          "Scripts"
+        ],
+        "summary": "Find all scripts.",
+        "description": "This endpoint returns a list with all the scripts in the database.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Scripts"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scripts"
+        ],
+        "summary": "Create script and return ID. All fields are required.",
+        "description": "This endpoint   a script and returns the newly   script ID.",
+        "parameters": [
+          {
+            "name": "Scripts",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/Script"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User successfully  .",
+            "schema": {
+              "type": "string",
+              "example": "Newly created Script ID",
+              "xml": {
+                "name": "main"
+              }
+            }
           }
         }
       }
