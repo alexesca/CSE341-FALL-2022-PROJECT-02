@@ -8,7 +8,6 @@ const ensureAuthenticated = require('./../middlewares/ensure-authenticated.middl
 
 
 router
-    .get("/new", ensureAuthenticated, technologiesMiddleware.fetch, controller.new)
     .get("/:_id",ensureAuthenticated, validateIdMiddleware.validate,  controller.id)
     .get("/", ensureAuthenticated, controller.index)
     .post("/", ensureAuthenticated, controller.create)
