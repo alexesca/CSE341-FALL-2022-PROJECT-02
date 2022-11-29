@@ -8,13 +8,13 @@ exports.index = async (req, res) => {
         description: 'User successfully obtained.',
         schema: { $ref: '#/definitions/Scripts' }
 } */
-    const scripts = await Scripts.find()
+    const conditions = {
+        _userId: req.user._id
+    }
+    const scripts = await Scripts.find(conditions);
     res.send(scripts)
 };
 
-exports.new = (req, res) => {
-    res.render('new', {user: req.user});
-}
 
 exports.id = async (req, res, next) => {
     // #swagger.tags = ['Scripts']

@@ -7,7 +7,7 @@ const authenticatedUserMiddleware = require('./../middlewares/authenticated-user
 /* GET home page. */
 router.use("/login", require("./login.js"));
 router.use("/users", require("./users.js"));
-router.use("/technologies", require("./technologies.js"));
+router.use("/technologies", authenticatedUserMiddleware.user, require("./technologies.js"));
 router.use("/scripts", authenticatedUserMiddleware.user, require("./scripts.js"));
 
 /* GET home page. */
